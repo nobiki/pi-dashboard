@@ -10,11 +10,8 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/*
 
 # smashing
-RUN gem install --no-document smashing \
- && smashing new dashboard \
- && cd dashboard && bundle install
+RUN gem install --no-document smashing
 
-WORKDIR /app/dashboard
+COPY bootstrap.sh /app/bootstrap.sh
+CMD ["/app/bootstrap.sh"]
 
-EXPOSE 3030
-CMD ["smashing", "start", "-a", "0.0.0.0", "-p", "3030"]
