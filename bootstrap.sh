@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export HOME=/app/dashboard
+export HOME=$APP_ROOT/dashboard
 
 if [ ! -e $HOME/bootstrap.lock ]; then
   echo "start initial process"
@@ -10,5 +10,7 @@ if [ ! -e $HOME/bootstrap.lock ]; then
 
   touch $HOME/bootstrap.lock
 fi
+
+cd $HOME
 
 smashing start -a 0.0.0.0 -p $SMA_PORT
