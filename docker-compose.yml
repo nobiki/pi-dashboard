@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+
+  pi-dashboard:
+    image: pi-dashboard
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "3030:3030"
+    # network_mode: "host"
+    # env_file: dashboard.env
+    # environment:
+    #   - FOO=bar
+
